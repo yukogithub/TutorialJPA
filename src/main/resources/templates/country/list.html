@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Tutorial of JPA</title>
 </head>
 <body>
     <h1>Country一覧</h1>
@@ -11,11 +11,15 @@
             <th>コード</th>
             <th>国内</th>
             <th>人口</th>
+            <th></th>
+            <th></th>
         </tr>
         <tr th:each="data:${countrylist}">
             <td th:text="${data.code}"></td>
             <td th:text="${data.name}"></td>
             <td th:text="${data.population}"></td>
+            <td><a th:text="詳細"　th:href="@{detail/{code}/(code=${data.code})}"></a></td>
+            <td><a th:text="削除"　th:href="@{delete/{code}/(code=${data.code})}"></a></td>
         </tr>
     </table>
 </body>
